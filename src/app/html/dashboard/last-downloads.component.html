@@ -1,0 +1,90 @@
+<div class="base-white-block">
+    <h3 class="box-title float-left">{{ 'dashboard.last_downloading_section_title' | translate }}</h3>
+    <div class="float-right">
+        <a [routerLink]="['/files']" id="my-files-lk" mdbTooltip="Basic tooltip" placement="top">{{ 'header.files_nav' | translate }}</a>
+    </div>
+    <div class="text-center empty-content" *ngIf="!lastDownloads.length">
+        <img src="/assets/images/downloading-files.png" alt="downloading files">
+        <h5>{{ 'dashboard.last_downloading_section_title' | translate }}</h5>
+        <p>{{ 'dashboard.click_to_add_file' | translate }}</p>
+    </div>
+
+    <div *ngIf="lastDownloads.length">
+        <div class="dashboard-info">
+            <div class="info-row info-head">
+                <div class="info-cell">{{ 'dashboard.last_downloads_file_name' | translate }}</div>
+                <div class="info-cell mobile-hide-cell">{{ 'dashboard.last_downloads_file_size' | translate }}</div>
+                <div class="info-cell mobile-hide-cell">{{ 'dashboard.last_downloads_file_status' | translate }}</div>
+                <div class="info-cell mobile-hide-cell text-right">{{ 'dashboard.last_downloads_file_actions' | translate }}</div>
+            </div>
+
+            <div class="row-group">
+                <div [class]="deletedId == download._id ? 'animated fadeOutUp info-row' : 'info-row'" *ngFor="let download of lastDownloads ; trackBy: trackByItemId" ngHide="checked">
+                    <div class="info-cell">
+                        <a [routerLink]="['/files']"
+                           *ngIf="download.status == 'Success'"
+                           class="download-file-name"
+                           [queryParams]="download.cloud && download.cloud != 's3' ? { dir: download.folder_path, cloud: download.cloud == 'gdrive' ? 'google-drive' : download.cloud } : { dir: download.folder_path }"
+                        >
+                            {{download.file_name}}
+                        </a>
+                        <span class="download-file-name" *ngIf="download.status !== 'Success'">
+                            {{download.file_name}}
+                        </span>
+                    </div>
+
+                    <div class="info-cell mobile-cell-7">{{ download.size ? helper.humanFileSize(download.size) : ''}}</div>
+                    <div class="info-cell mobile-cell-7">
+                        <p [class]="download.status == 'Success' ? 'file-success-status' : 'failed-status'">
+                            {{download.status}}
+                        </p>
+                    </div>
+                    <div class="info-cell mobile-cell-3 text-right">
+                        <ul class="list-inline file-action-items">
+                            <li class="list-inline-item" *ngIf="download.size">
+                                <a [routerLink]="['/files']"
+                                   [queryParams]="download.cloud && download.cloud != 's3' ? { dir: download.folder_path, cloud: download.cloud == 'gdrive' ? 'google-drive' : download.cloud } : { dir: download.folder_path }">
+                                    <span class="icon-folder"></span>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <span class="icon-cancel-circle" (click)="deleteModal(download._id)"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+
+    <div class="link-to-files" *ngIf="countOfDownloads > 4">
+        <span class="animation" (click)="getAllDownloads()" *ngIf="!allDownloadsActive">{{ 'dashboard.all_downloads' | translate }}</span>
+    </div>
+</div>
+
+<div mdbModal #deleteModalTmpl="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="delete-popup">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="deleteModalTmpl.hide()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h4>{{ 'global.delete_popup_text' | translate }}</h4>
+            </div>
+            <div class="modal-footer">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <button type="button" class="gray-btn" (click)="deleteModalTmpl.hide()" mdbBtn mdbWavesEffect>{{ 'global.cancel' | translate }}</button>
+                    </li>
+                    <li class="list-inline-item">
+                        <button type="button" class="blue-btn" (click)="deleteFolder()" mdbBtn mdbWavesEffect>{{ 'dashboard.last_downloads_file_delete' | translate }}</button>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>

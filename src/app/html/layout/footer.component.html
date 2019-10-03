@@ -1,0 +1,21 @@
+<footer>
+    <div class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <ul class="list-inline social-icons">
+                    <li class="list-inline-item"><a href="javascript:void (0)"><span class="icon-facebook"></span></a></li>
+                    <li class="list-inline-item"><a href="javascript:void (0)"><span class="icon-twitter"></span></a></li>
+                </ul>
+                <ul class="list-inline text-center footer-menu">
+                    <li class="list-inline-item"><a [routerLink]="['/choose-plan']" [routerLinkActive]="['active']">{{ 'footer.pricing_nav' | translate }}</a></li>
+                    <li class="list-inline-item"><a [routerLink]="['/privacy-policy']" [routerLinkActive]="['active']">{{ 'footer.privacy_police_nav' | translate }}</a></li>
+                    <li class="list-inline-item"><a [routerLink]="['/terms-of-use']" [routerLinkActive]="['active']">{{ 'footer.terms_nav' | translate }}</a></li>
+                    <li class="list-inline-item"><a [routerLink]="['/help']" [routerLinkActive]="['active']">{{ 'footer.help_nav' | translate }}</a></li>
+                    <li class="list-inline-item"><a [routerLink]="['/contact']" [routerLinkActive]="['active']">{{ 'footer.contact_nav' | translate }}</a></li>
+                </ul>
+                <span class="copyright-text">{{ 'footer.rights_nav' | translate:date }}</span>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</footer>

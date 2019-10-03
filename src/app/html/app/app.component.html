@@ -1,0 +1,15 @@
+<!-- START HEADER ZONE -->
+<app-header *ngIf="isNotAuthPage()"></app-header>
+<!-- END HEADER ZONE -->
+
+<!-- START CONTENT ZONE -->
+<router-outlet></router-outlet>
+<!-- END CONTENT ZONE -->
+
+<!-- START FOOTER ZONE -->
+<app-footer *ngIf="isNotAuthPage()"></app-footer>
+<!-- END FOOTER ZONE -->
+
+<!-- START NOTIFY ZONE -->
+<simple-notifications></simple-notifications>
+<!-- END NOTIFY ZONE -->

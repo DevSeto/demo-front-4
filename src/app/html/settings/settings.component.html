@@ -1,0 +1,169 @@
+<section id="settings-page" class="page-content">
+    <div class="container">
+        <div class="page-center-content">
+            <upload-file></upload-file>
+            <h2 class="page-title">{{ 'settings.page_title' | translate }}</h2>
+            <div class="base-white-block">
+                <div class="settings-tab">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item" [ngClass]="{'active': activeTab == 'personal'}">
+                            <a
+                                    [routerLink]="['/settings']"
+                                    fragment="personal"
+                                    (click)="toggleClass('personal')"
+                                    class="box-shadow-none"
+                            >{{ 'settings.personal_information_tab' | translate }}</a>
+                        </li>
+                        <li class="nav-item" [ngClass]="{'active': activeTab == 'notifications'}" class="none">
+                            <a
+                                    [routerLink]="['/settings']"
+                                    fragment="notifications"
+                                    (click)="toggleClass('notifications')"
+                                    class="box-shadow-none"
+                            >{{ 'settings.notification_tab' | translate }}</a>
+                        </li>
+                        <li class="nav-item" [ngClass]="{'active': activeTab == 'payment'}" class="none">
+                            <a
+                                    [routerLink]="['/settings']"
+                                    fragment="payment"
+                                    (click)="toggleClass('payment')"
+                                    class="box-shadow-none"
+                            >{{ 'settings.payment_history_tab' | translate }}</a>
+                        </li>
+                        <li class="nav-item" [ngClass]="{'active': activeTab == 'connections'}">
+                            <a
+                                    [routerLink]="['/settings']"
+                                    fragment="connections"
+                                    (click)="toggleClass('connections')"
+                                    class="box-shadow-none"
+                            >{{ 'settings.connections_tab' | translate }}</a>
+                        </li>
+                        <li class="nav-item" [ngClass]="{'active': activeTab == 'usenet'}">
+                            <a
+                                    [routerLink]="['/settings']"
+                                    fragment="usenet"
+                                    (click)="toggleClass('usenet')"
+                                    class="box-shadow-none"
+                            >{{ 'settings.usenet_tab' | translate }}</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane" [ngClass]="{'active': tabs.personal}" id="personal-info">
+                            <div class="row">
+                                <div class="col-md-12">
+
+                                    <div class="row">
+                                        <form
+                                            class="w-100"
+                                            [formGroup]="userForm"
+                                            (submit)="savePassword()"
+                                        >
+                                            <div class="personal-info-content">
+                                                <h3 class="tab-block-title">{{ 'settings.basic_form' | translate }}</h3>
+                                                <div class="field-row">
+                                                    <label for="email">{{ 'global.email_label' | translate }}</label>
+                                                    <input type="text" name="email" id="email" placeholder="{{ 'global.email_placeholder' | translate }}" value="{{userEmail}}" disabled="true">
+                                                </div>
+                                                <div class="field-row">
+                                                    <label for="current-password">{{ 'global.current_password_label' | translate }}*</label>
+                                                    <input type="password" name="current_password" id="current-password" placeholder="{{ 'global.current_password_placeholder' | translate }}" [class.input-error]="classError('current_password') || userForm.hasError('invalidPassword')" autocomplete="off" formControlName="current_password">
+                                                </div>
+                                                <div class="field-row">
+                                                    <label for="new-password">{{ 'global.new_password_label' | translate }}*</label>
+                                                    <input type="password" name="new_password" id="new-password" placeholder="{{ 'global.new_password_placeholder' | translate }}" [class.input-error]="classError('new_password') || userForm.hasError('mismatch')" autocomplete="off" formControlName="new_password">
+                                                </div>
+                                                <div class="field-row">
+                                                    <label for="confirm-password">{{ 'global.confirm_password_label' | translate }}*</label>
+                                                    <input type="password" name="confirm_password" id="confirm-password" placeholder="{{ 'global.confirm_password_placeholder' | translate }}" [class.input-error]="classError('confirm_password') || userForm.hasError('mismatch')" autocomplete="off" formControlName="confirm_password">
+                                                </div>
+                                                <div class="text-right">
+                                                    <button class="box-shadow-none blue-btn" mdbBtn mdbWavesEffect>{{ 'global.save_changes' | translate }}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane" [ngClass]="{'active': tabs.notifications}" id="notifications">
+                            <ul class="list-inline">
+                                <li>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <p>{{ 'settings.notify_me_when' | translate }}:</p>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" class="checkbox-label-clickable" id="torrents" checked />
+                                            <label for="torrents">{{ 'settings.when_torrent_downloaded' | translate }}</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" class="checkbox-label-clickable" id="media-files" />
+                                            <label for="media-files">{{ 'settings.when_media_files_converted' | translate }}</label>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <p>{{ 'settings.notify_me_about' | translate }}:</p>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" class="checkbox-label-clickable" id="payments-billing" />
+                                            <label for="payments-billing">{{ 'settings.payments_or_billing_plan' | translate }}</label>
+                                        </li>
+                                        <li>
+                                            <input type="checkbox" class="checkbox-label-clickable" id="new-feautures" />
+                                            <label for="new-feautures">{{ 'settings.features_and_updates' | translate }}</label>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane" [ngClass]="{'active': tabs.payment}" id="payment-history">
+                            <table class="table">
+                                <tr>
+                                    <th>{{ 'settings.payment_date' | translate }}</th>
+                                    <th>{{ 'settings.payment_plan' | translate }}</th>
+                                    <th>{{ 'settings.payment_method' | translate }}</th>
+                                    <th class="text-right">{{ 'settings.payment_price' | translate }}</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        February 23, 2018
+                                    </td>
+                                    <td>
+                                        100 GB
+                                    </td>
+                                    <td class="payment-method-cell">
+                                        fastpayment
+                                    </td>
+                                    <td class="text-right">
+                                        $10
+                                    </td>
+                                </tr>
+                            </table>
+                            <div class="link-to-files">
+                                <a [routerLink]="['/choose-plan']">{{ 'settings.edit_plan' | translate }}</a>
+                            </div>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane" [ngClass]="{'active': tabs.connections}" id="connections">
+                            <connections-tab></connections-tab>
+                        </div>
+
+                        <div role="tabpanel" class="tab-pane" [ngClass]="{'active': tabs.usenet}" id="usenet">
+                            <usenet-tab></usenet-tab>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,70 @@
+.notification-item .dropdown-menu li:last-child {
+    border-bottom: none;
+}
+
+.empty-content {
+    float: left;
+    width: 100%;
+}
+
+.dropdown-title {
+    color: #2f3339;
+    font-size: 12px;
+    font-family: 'MuliBold'!important;
+    text-transform: uppercase;
+    padding: 10px 0;
+    border-bottom: 1px solid #d0dae24d;
+}
+
+ .success-download a {
+    color: #3ac25e!important;
+}
+ .failed-download a {
+    color: #f73e3e;
+}
+
+.failed-download .notification-count {
+    background: #f73e3e;
+}
+
+.success-download .notification-count {
+    background: #3ac25e;
+}
+
+.success-download, .failed-download {
+    padding: 10px 0!important;
+    border-bottom: 1px solid #d0dae24d;
+}
+
+.notification-count {
+    float: right;
+    color: #fff;
+    display: inline-block;
+    font-size: 12px;
+    font-family: 'MuliBold';
+    padding: 2px 10px!important;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    min-width: 32px;
+    text-align: center;
+}
+
+.view-files-link {
+    width: 100%!important;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    border: solid 1px #12aef5;
+    text-align: center;
+    color: #12aef5 !important;
+    padding: 11px 5px !important;
+    font-size: 12px;
+    font-family: 'MuliBold';
+    margin: 15px 0 5px!important;
+    text-transform: uppercase;
+}
+
+.view-files-link:hover {
+    background-color: #f0f9ff !important;
+}

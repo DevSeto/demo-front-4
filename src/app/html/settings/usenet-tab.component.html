@@ -1,0 +1,200 @@
+<div id="usenet-servers-section">
+    <h3 class="float-right">
+        <button type="button" class="custom-outline-lg-btn" (click)="addUsenetServerModal()">
+            {{ 'settings.add_usenet' | translate }}
+        </button>
+    </h3>
+
+    <table class="table usenet-table" *ngIf="servers.length">
+        <tr class="thead">
+            <th class="file-size-cell">{{ 'settings.usenet_server_name' | translate }}</th>
+            <th class="file-size-cell">{{ 'settings.usenet_server_host' | translate }}</th>
+            <th class="file-size-cell">{{ 'settings.usenet_server_port' | translate }}</th>
+            <th class="file-size-cell">{{ 'settings.usenet_server_user_name' | translate }}</th>
+            <th class="file-size-cell">{{ 'settings.usenet_server_password' | translate }}</th>
+            <th class="file-size-cell">{{ 'settings.usenet_server_connection_limit' | translate }}</th>
+            <th class="text-right">{{ 'settings.usenet_server_actions' | translate }}</th>
+        </tr>
+        <tr *ngFor="let server of servers">
+            <td title="{{server.server_name}}">
+                {{server.server_name}}
+            </td>
+            <td title="{{server.server_host}}">
+                {{server.server_host}}
+            </td>
+            <td title="{{server.server_port}}">
+                {{server.server_port}}
+            </td>
+            <td title="{{server.server_username}}">
+                {{server.server_username}}
+            </td>
+            <td title="{{server.server_password}}">
+                {{server.server_password}}
+            </td>
+            <td title="{{server.server_connection_limit}}">
+                {{server.server_connection_limit}}
+            </td>
+            <td class="text-right">
+                <ul class="list-inline action-items">
+                    <li class="list-inline-item">
+                        <span class="icon-pencil" (click)="editUsenetServerModal(server)"></span>
+                    </li>
+                    <li class="list-inline-item">
+                        <span class="icon-cancel-circle" (click)="deleteUsenetServerModal(server)"></span>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <div mdbModal #addUsenetModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="add-usenet-popup">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="addUsenetModal.hide()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" id="add-usenet-popup">
+                        <div class="col-lg-12 text-center">
+                            <form
+                                    [formGroup]="form"
+                                    (submit)="save()"
+                            >
+                                <h3>
+                                    {{ 'settings.add_usenet' | translate }}
+                                </h3>
+                                <div class="accordion">
+                                    <div class="field-row">
+                                        <input type="text" name="server_name" id="server-name" placeholder="{{ 'settings.usenet_server_name' | translate }}" [class.input-error]="classError('server_name') || form.hasError('mismatch')" autocomplete="off" formControlName="server_name">
+                                    </div>
+
+                                    <div class="field-row half-width">
+                                        <input type="text" name="server_host" id="server-host" placeholder="{{ 'settings.usenet_server_host' | translate }}" [class.input-error]="classError('server_host') || form.hasError('mismatch')" autocomplete="off" formControlName="server_host">
+                                    </div>
+
+                                    <div class="field-row">
+                                        <input type="text" name="server_port" id="server-port" placeholder="{{ 'settings.usenet_server_port' | translate }}" [class.input-error]="classError('server_port') || form.hasError('mismatch')" autocomplete="off" formControlName="server_port">
+                                    </div>
+
+                                    <div class="field-row">
+                                        <input type="text" name="server_username" id="server-username" placeholder="{{ 'settings.usenet_server_user_name' | translate }}" [class.input-error]="classError('server_username') || form.hasError('mismatch')" autocomplete="off" formControlName="server_username">
+                                    </div>
+
+                                    <div class="field-row">
+                                        <input type="text" name="server_password" id="server-password" placeholder="{{ 'settings.usenet_server_password' | translate }}" [class.input-error]="classError('server_password') || form.hasError('mismatch')" autocomplete="off" formControlName="server_password">
+                                    </div>
+
+                                    <div class="field-row">
+                                        <input type="text" name="server_connection_limit" id="server-max-connection" placeholder="{{ 'settings.usenet_server_connection_limit' | translate }}" [class.input-error]="classError('server_connection_limit') || form.hasError('mismatch')" autocomplete="off" formControlName="server_connection_limit">
+                                    </div>
+
+                                    <span id="msg"></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pt-0">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <button type="button" class="ml-0 blue-btn box-shadow-none text-uppercase" (click)="testConnection()" [disabled]="form.invalid" mdbBtn mdbWavesEffect>{{ 'settings.test_connection' | translate }}</button>
+                        </li>
+                        <li class="list-inline-item">
+                            <button type="button" class="mr-0 blue-btn box-shadow-none text-uppercase" (click)="save()" mdbBtn mdbWavesEffect>{{ 'settings.add_usenet' | translate }}</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div mdbModal #editUsenetModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="edit-usenet-popup">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="addUsenetModal.hide()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row" id="add-usenet-popup">
+                        <div class="col-lg-12 text-center">
+                            <form
+                                    [formGroup]="form"
+                                    (submit)="update()"
+                            >
+                                <h3>
+                                    {{ 'settings.edit_usenet' | translate }}
+                                </h3>
+                                <div class="accordion">
+                                    <div class="field-row">
+                                        <input type="text" name="server_name" value="{{server ? server.server_name : ''}}" placeholder="{{ 'settings.usenet_server_name' | translate }}" [class.input-error]="classError('server_name') || form.hasError('mismatch')" autocomplete="off" formControlName="server_name">
+                                    </div>
+
+                                    <div class="field-row half-width">
+                                        <input type="text" name="server_host" value="{{server ? server.server_host : ''}}" placeholder="{{ 'settings.usenet_server_host' | translate }}" [class.input-error]="classError('server_host') || form.hasError('mismatch')" autocomplete="off" formControlName="server_host">
+                                    </div>
+
+                                    <div class="field-row">
+                                        <input type="text" name="server_port" value="{{server ? server.server_port : ''}}" placeholder="{{ 'settings.usenet_server_port' | translate }}" [class.input-error]="classError('server_port') || form.hasError('mismatch')" autocomplete="off" formControlName="server_port">
+                                    </div>
+
+                                    <div class="field-row">
+                                        <input type="text" name="server_username" value="{{server ? server.server_username : ''}}" placeholder="{{ 'settings.usenet_server_user_name' | translate }}" [class.input-error]="classError('server_username') || form.hasError('mismatch')" autocomplete="off" formControlName="server_username">
+                                    </div>
+
+                                    <div class="field-row">
+                                        <input type="text" name="server_password" value="{{server ? server.server_password : ''}}" placeholder="{{ 'settings.usenet_server_password' | translate }}" [class.input-error]="classError('server_password') || form.hasError('mismatch')" autocomplete="off" formControlName="server_password">
+                                    </div>
+
+                                    <div class="field-row">
+                                        <input type="text" name="server_connection_limit" value="{{server ? server.server_connection_limit : ''}}" placeholder="{{ 'settings.usenet_server_connection_limit' | translate }}" [class.input-error]="classError('server_connection_limit') || form.hasError('mismatch')" autocomplete="off" formControlName="server_connection_limit">
+                                    </div>
+
+                                    <span id="msg"></span>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer pt-0">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <button type="button" class="ml-0 blue-btn box-shadow-none text-uppercase" (click)="testConnection()" [disabled]="form.invalid" mdbBtn mdbWavesEffect>{{ 'settings.test_connection' | translate }}</button>
+                        </li>
+                        <li class="list-inline-item">
+                            <button type="button" class="mr-0 blue-btn box-shadow-none text-uppercase" (click)="update()" mdbBtn mdbWavesEffect>{{ 'global.update' | translate }}</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div mdbModal #deleteModal="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="delete-usenet-popup">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="deleteModalTmpl.hide()">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4>{{ 'global.delete_popup_text' | translate }}</h4>
+                </div>
+                <div class="modal-footer">
+                    <ul class="list-inline">
+                        <li class="list-inline-item">
+                            <button type="button" class="gray-btn" (click)="c('Close click')">{{ 'global.cancel' | translate }}</button>
+                        </li>
+                        <li class="list-inline-item">
+                            <button type="button" class="blue-btn" (click)="deleteUsenetServer()">{{ 'global.delete' | translate }}</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

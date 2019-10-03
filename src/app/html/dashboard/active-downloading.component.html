@@ -1,0 +1,61 @@
+<div class="base-white-block">
+    <h3 class="box-title">{{ 'dashboard.downloading_section_title' | translate }}</h3>
+    <div class="text-center empty-content" *ngIf="downloadList || !cloudFiles.length">
+        <img src="/assets/images/downloading-files.png" alt="downloading files">
+        <h5>{{ 'dashboard.no_files_downloading' | translate }}</h5>
+        <p>{{ 'dashboard.click_to_add_file' | translate }}</p>
+    </div>
+
+    <div class="row" *ngIf="!downloadList && (cloudFiles.length)">
+        <div class="col-md-12">
+            <div class="dashboard-info">
+                <div class="info-row info-head">
+                    <div class="info-cell">{{ 'dashboard.download_name' | translate }}</div>
+                    <div class="info-cell mobile-hide-cell">{{ 'dashboard.download_progress' | translate }}</div>
+                    <div class="info-cell mobile-hide-cell">{{ 'dashboard.download_speed' | translate }}</div>
+                    <div class="info-cell mobile-hide-cell">{{ 'dashboard.download_status' | translate }}</div>
+                    <div class="info-cell mobile-hide-cell text-right">{{ 'dashboard.download_actions' | translate }}</div>
+                </div>
+                <div class="row-group" *ngFor="let file of cloudFiles; trackBy: trackByItemId ">
+                    <div class="info-row">
+                        <div class="info-cell">
+                            <p class="download-file-name">{{file.name}}</p>
+                        </div>
+                        <div class="info-cell mobile-cell-7">
+                            <ul class="list-inline">
+                                <li class="download-time list-inline-item">{{file.estimation}}</li>
+                                <li class="list-inline-item">
+                                    <div class="download-progress">
+                                        <span class="progress-value" [style.width]="file.percent + '%'"></span>
+                                    </div>
+                                </li>
+                                <li class="list-inline-item">
+                                    {{file.remaining_size}} / {{file.file_size}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="info-cell mobile-cell-3">{{file.download_speed}}</div>
+                        <div class="info-cell mobile-cell-7">
+                            <p [class]="file.status == 'Paused' ? 'paused-status' : 'success-status'">
+                                <span [class]="file.status == 'Paused' ? 'icon-pause' : 'icon-transfers'"></span> {{file.status}}
+                            </p>
+                        </div>
+                        <div class="info-cell mobile-cell-3 text-right" *ngIf="file.status !== 'Store in cloud'">
+                            <ul class="list-inline file-action-items">
+                                <li class="list-inline-item" *ngIf="checkIfHaveParent(file.id)">
+                                    <button type="button" (click)="editNzb(file.id, (file.status == 'Paused' ? 'GroupResume' : 'GroupPause'))"><i [class]="file.status == 'Paused' ? 'icon-proceed-white animation' : 'icon-pause animation'" ></i></button>
+                                </li>
+                                <li class="list-inline-item">
+                                    <span class="icon-cancel-circle animation" (click)="editNzb(file.id, 'GroupFinalDelete')"></span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="link-to-files">
+                <a [routerLink]="['files']">{{ 'dashboard.file_page' | translate }}</a>
+            </div>
+        </div>
+    </div>
+</div>

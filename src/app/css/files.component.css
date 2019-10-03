@@ -1,0 +1,504 @@
+#my-files-page .base-white-block {
+    padding: 0;
+}
+
+#my-files-page .actions-btns li:last-child {
+    padding-right: 0;
+}
+
+.field-row {
+    margin-bottom: 17px;
+}
+
+.scroll-box::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scroll-box::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.checkbox-cell {
+    width: 30px;
+}
+
+#file-action-items {
+    margin-top: -15px;
+}
+
+.file-action-items [class^="icon-"] {
+    color: #afc3d4;
+    cursor: pointer;
+}
+
+.scroll-box::-webkit-scrollbar-thumb {
+    background-color: #7e95a9;
+    outline: 1px solid slategrey;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+#my-files-page .file-action-items [class^="icon-"] {
+    font-size: 20px;
+    vertical-align: sub;
+}
+
+#my-files-page .file-action-items .icon-download {
+    margin-right: 4px;
+}
+
+#my-files-page .file-action-items {
+    margin-bottom: 0;
+}
+
+.custom-outline-lg-btn.create-folder-btn {
+    color: #3ac25e;
+    border-color: #3ac25e;
+}
+
+.custom-outline-lg-btn.create-folder-btn:hover {
+    background: #3ac25e;
+    color: #fff;
+}
+
+.custom-outline-lg-btn.download-folder-btn {
+    color: #12aef5;
+    border-color: #12aef5;
+    min-width: 270px;
+}
+
+.custom-outline-lg-btn.download-folder-btn:hover {
+    color: #fff;
+    background: #12aef5;
+}
+
+.custom-popup .close {
+    opacity: 1;
+    margin-top: -10px;
+    display: none;
+}
+
+#create-folder-popup li:last-child {
+    padding-right: 0;
+}
+
+#create-folder-popup h2, #move-folder-popup h2 {
+    font-size: 18px;
+    color: #113242;
+    font-family: 'MuliSemiBold';
+    margin: 0 0 25px 0;
+}
+
+.custom-popup .modal-body {
+    padding: 25px 32px;
+}
+
+#create-folder-popup button, #move-folder-popup button {
+    min-width: 158px;
+}
+
+.custom-popup .modal-dialog {
+    max-width: 570px;
+}
+
+.main-tree {
+    height: 242px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    background-color: #f6fafc;
+    border: solid 1px #d0dae2;
+    /*width: 100%;*/
+    padding: 15px 40px;
+    margin-bottom: 24px;
+    overflow-y: auto;
+}
+
+.main-tree li {
+    list-style: none;
+    color: #2f3339;
+    font-size: 14px;
+}
+
+.main-tree li .icon-folder {
+    color: #12aef5;
+    font-size: 20px;
+    margin-right: 5px;
+    vertical-align: sub;
+}
+
+.main-tree .tree-item {
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+.main-tree .tree-item.active {
+    color: #12aef5;
+    font-family: 'MuliBold';
+    font-size: 12px;
+}
+
+.tree-item .caret {
+    margin-top: -5px;
+    margin-right: 5px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    border-top: 5px dashed;
+    border-top: 5px solid \9;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    color: #7e95a9;
+}
+
+.caret.caret-bottom {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+#move-folder-popup ul {
+    margin-left: 0;
+}
+
+#move-folder-popup .custom-outline-lg-btn {
+    color: #12aef5;
+    border-color: #12aef5;
+}
+
+.buttons-box li:first-child {
+    padding-left: 0;
+    float: left;
+}
+
+.buttons-box li:last-child {
+    padding-right: 0;
+    float: right;
+}
+
+.tree-sub-item {
+    display: none;
+}
+
+.custom-table tr th:last-child {
+    width: 100px;
+}
+
+.custom-table {
+    table-layout: fixed;
+    margin-bottom: 0;
+}
+
+.custom-table th {
+    letter-spacing: 1px;
+    color: #7e95a9;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.custom-table td, .custom-table th {
+    border: none;
+    padding: 18px 16px !important;
+    vertical-align: middle !important;
+    color: #7e95a9;
+}
+
+.custom-table tr:nth-child(odd) {
+    background-color: #f0faff;
+}
+
+.custom-table td {
+    border-top: none !important;
+}
+
+.custom-table th {
+    border-top: none !important;
+    border-bottom: 1px solid #d0dae2;
+    background-color: #fff;
+}
+
+.custom-table td.files-name {
+    color: #2f3339;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.custom-table .icon-folder {
+    color: #12aef5;
+    font-size: 19px;
+    vertical-align: sub;
+    margin-right: 20px;
+    margin-top: 1px;
+    display: inline-block;
+}
+
+#my-files-page .base-white-block {
+    padding: 0;
+}
+
+.custom-tab .nav-tabs li a {
+    color: #7e95a9;
+    font-size: 14px;
+    border-bottom: 2px solid transparent;
+    padding: 14px 16px;
+    margin-right: 0;
+    text-align: center;
+}
+
+.custom-tab .nav-tabs li a.active {
+    border: 1px solid #fff;
+    border-bottom: 2px solid #12aef5;
+    color: #12aef5;
+    font-family: 'MuliBold';
+    background-color: inherit !important;
+}
+
+.custom-tab .nav-tabs li a:hover {
+    background: #fff;
+    border-color: transparent;
+    border-bottom-color: #12aef5;
+    color: #12aef5;
+}
+
+.custom-tab .nav-tabs {
+    padding-left: 23px;
+    border-bottom: 1px solid rgba(208, 218, 226, 0.5);
+}
+
+.custom-tab .tab-content {
+    padding: 0 15px 15px 15px;
+}
+
+.full-width-left {
+    width: 100%;
+    float: left;
+}
+
+.custom-outline-lg-btn.delete-btn {
+    border-color: #f73e3e;
+    color: #f73e3e;
+}
+
+.custom-outline-lg-btn.delete-btn.active {
+    background: #f73e3e;
+    color: #fff;
+}
+
+.custom-outline-lg-btn.delete-btn:hover {
+    background: #f73e3e;
+    color: #fff;
+}
+
+#delete-popup h2 {
+    color: #113242;
+    font-size: 18px;
+    font-family: 'MuliSemiBold';
+}
+
+#delete-popup .close {
+    padding: 3px 10px;
+}
+
+#delete-popup ul {
+    float: left;
+    width: 100%;
+    margin-bottom: 25px;
+}
+
+#delete-option div {
+    display: inline-block;
+}
+
+#delete-option {
+    margin: 5px;
+}
+
+#delete-from-storage {
+    float: left;
+    width: 210px;
+    position: relative;
+    left: 50%;
+    margin-left: -105px;
+    margin-bottom: 20px;
+}
+
+#delete-from-storage #delete-option {
+    float: left;
+}
+
+#delete-from-storage #delete-option .info-cell {
+    padding: 0px;
+}
+
+#delete-from-storage span {
+    float: left;
+    margin-top: 3px;
+}
+
+@media screen and (max-width: 650px) {
+    ul.actions-btns {
+        float: left !important;
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
+
+    .custom-tab .nav-tabs li {
+        display: block;
+        float: none;
+        border-top: 1px solid rgba(208, 218, 226, 0.5);
+    }
+
+    #my-files-page .actions-btns li:first-child {
+        padding-left: 0;
+    }
+
+    .custom-popup .close {
+        display: inline-block;
+        min-width: inherit !important;
+    }
+
+    .custom-popup .modal-dialog {
+        max-width: 90%;
+        width: 90%;
+    }
+
+    .buttons-box .cancel-btn {
+        display: none !important;
+    }
+
+    #my-files-page .actions-btns li:first-child {
+        padding-left: 0;
+    }
+
+    #my-files-page .checkbox-cell, #my-files-page .custom-table tr th:first-child {
+        width: 40px !important;
+    }
+
+    #my-files-page .actions-btns {
+        margin-bottom: 15px;
+    }
+
+    #my-files-page {
+        background: #fff;
+    }
+
+    #my-files-page .base-white-block {
+        padding: 0;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+
+    #my-files-page .custom-table tr {
+        display: table;
+        width: 100%;
+    }
+
+    #my-files-page .custom-table td {
+        width: 33%;
+        float: left;
+        padding: 10px 10px !important;
+    }
+
+    #my-files-page tr .file-size-cell, #my-files-page .custom-table tr .file-size-cell {
+        padding-left: 47px !important;
+    }
+
+    #my-files-page tr .file-amount-cell {
+        text-align: center;
+    }
+
+    #my-files-page .custom-table th {
+        display: block;
+        float: left;
+        width: 33%;
+        padding: 10px 10px !important;
+        min-height: 58px;
+    }
+
+    #my-files-page .custom-table tr td.files-name {
+        display: block;
+        float: left;
+        width: 75%;
+    }
+
+    #my-files-page .custom-table tr th.checkbox-cell {
+        border-bottom: 0;
+    }
+
+    #my-files-page .custom-table tr th.files-name {
+        display: block;
+        float: left;
+        width: 75%;
+        border-bottom: 0;
+    }
+
+    #my-files-page .custom-table th.files-name span {
+        margin-left: 0;
+    }
+
+    tr.thead {
+        background-color: #fff !important;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #my-files-page .actions-btns li {
+        display: block;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+
+    #my-files-page .actions-btns button {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .custom-popup .modal-body {
+        padding: 15px;
+    }
+
+    .main-tree {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    #create-folder-popup h2, #move-folder-popup h2 {
+        margin-bottom: 15px;
+    }
+
+    #move-folder-popup button {
+        min-width: 138px;
+    }
+
+    #create-folder-popup .cancel-btn {
+        display: none !important;
+    }
+
+    #create-folder-popup button, #create-folder-popup li {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    #move-folder-popup .buttons-box li {
+        width: 100%;
+        padding: 0;
+    }
+
+    #move-folder-popup .buttons-box li:first-child {
+        margin-bottom: 15px;
+    }
+
+    #move-folder-popup .buttons-box li button {
+        min-width: 100%;
+        float: none;
+    }
+}

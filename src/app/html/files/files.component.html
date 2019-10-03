@@ -1,0 +1,125 @@
+<section id="my-files-page" class="page-content">
+    <div class="container">
+        <div class="page-center-content">
+            <upload-file></upload-file>
+            <div class="row">
+                <div class="col-lg-9 float-left">
+                    <files-navigation></files-navigation>
+                </div>
+<!--                <div class="col-lg-3 float-right" id="file-action-items">-->
+<!--                    <ul class="list-inline float-right actions-btns" *ngIf="countOfSelected">-->
+<!--                        <li>-->
+<!--                            <button type="button" class="custom-outline-lg-btn delete-btn" (click)="deleteFolderModal()">-->
+<!--                                <span class="icon-trash"></span> {{ 'global.delete' | translate }}-->
+<!--                            </button>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+            </div>
+            <div class="base-white-block">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="custom-tab">
+                            <ngb-tabset type="tabs" (tabChange)="emptyUrl($event)" [activeId]="cloud">
+                                <ngb-tab title="NZB Cloud" id="nzbcloud">
+                                    <ng-template ngbTabContent>
+                                        <default-tab
+                                                [folders]="folders"
+                                                [foldersCheckData]="foldersCheckData"
+                                                [dirId]="dirId"
+                                                (deleteFoldersData)="folderHandler($event)"
+                                                (createFolderStructure)="createStructure($event)"
+                                                (deleteFolder)="deleteFolderModal($event)"
+                                                [deletedFolder]="deletedFolder"
+                                        >
+                                        </default-tab>
+                                    </ng-template>
+                                </ngb-tab>
+                                <ngb-tab title="Google Drive" id="google-drive" *ngIf="externalStorages.gdrive">
+                                    <ng-template ngbTabContent>
+                                        <google-tab
+                                                [folders]="folders"
+                                                [dirId]="dirId"
+                                                (deleteFoldersData)="folderHandler($event)"
+                                                (createFolderStructure)="createStructure($event)"
+                                                (deleteFolder)="deleteFolderModal($event)"
+                                                [deletedFolder]="deletedFolder"
+                                        >
+                                        </google-tab>
+                                    </ng-template> 
+                                </ngb-tab>
+                                <ngb-tab title="OneDrive" id="onedrive" *ngIf="externalStorages.onedrive">
+                                    <ng-template ngbTabContent>
+                                        <onedrive-tab
+                                                [folders]="folders"
+                                                [dirId]="dirId"
+                                                (deleteFoldersData)="folderHandler($event)"
+                                                (createFolderStructure)="createStructure($event)"
+                                                (deleteFolder)="deleteFolderModal($event)"
+                                                [deletedFolder]="deletedFolder"
+                                        >
+                                        </onedrive-tab>
+                                    </ng-template>
+                                </ngb-tab>
+                                <ngb-tab title="Dropbox" id="dropbox" *ngIf="externalStorages.dropbox">
+                                    <ng-template ngbTabContent>
+                                        <dropbox-tab
+                                                [folders]="folders"
+                                                [dirId]="dirId"
+                                                (deleteFoldersData)="folderHandler($event)"
+                                                (createFolderStructure)="createStructure($event)"
+                                                (deleteFolder)="deleteFolderModal($event)"
+                                                [deletedFolder]="deletedFolder"
+                                        >
+                                        </dropbox-tab>
+                                    </ng-template>
+                                </ngb-tab>
+                            </ngb-tabset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div mdbModal #deleteModalTmpl="mdbModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true" id="delete-popup">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close pull-right" aria-label="Close" (click)="deleteModalTmpl.hide()">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="delete-popup">
+                    <div class="col-lg-12 text-center">
+                        <h2>{{ 'global.delete_popup_text' | translate }}</h2>
+                        <!--<div id="delete-from-storage">-->
+                        <!--<div id="delete-option">-->
+                        <!--<div class="info-cell checkbox-cell">-->
+                        <!--<div class="custom-checkbox">-->
+                        <!--<input type="checkbox" id="checkbox-delete-from-storage" name="storage" [checked]="deleteFromStorage" (change)="deleteFromStorage = !deleteFromStorage"/>-->
+                        <!--<label for="checkbox-delete-from-storage"></label>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--<span>Also delete from storage ?</span>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <button type="button" class="gray-btn text-uppercase" (click)="deleteModalTmpl.hide()" mdbBtn mdbWavesEffect>{{ 'global.cancel' | translate }}</button>
+                    </li>
+                    <li class="list-inline-item">
+                        <button type="button" class="blue-btn text-uppercase" (click)="deleteFolder()" mdbBtn mdbWavesEffect>{{ 'global.delete' | translate }}</button>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>

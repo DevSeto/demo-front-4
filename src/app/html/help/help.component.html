@@ -1,0 +1,19 @@
+<section id="help-page" class="page-content">
+    <div class="container">
+        <div class="page-center-content">
+            <h2 class="page-title"> {{ 'help.page_title' | translate }} </h2>
+            <p class="support-link"> <a [routerLink]="['/contact']">{{ 'help.contact_our_support' | translate }}</a> {{ 'help.dont_answer_for_question' | translate }}</p>
+
+            <div class="faqs" *ngFor="let question of questions">
+                <button mdbBtn color="primary" class="waves-light box-shadow-none" [class.active]="activeTab.indexOf(question.id) !== -1" type="button" (click)="setTab(question.id);test.toggle();" mdbWavesEffect>
+                    {{question.question}}
+                    <span class="icon-plus plus-minus-icon float-right"></span>
+                </button>
+
+                <div class="cl-body" mdbCollapse #test="bs-collapse">
+                    <div [innerHTML]="question.answer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

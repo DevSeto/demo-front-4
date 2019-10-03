@@ -1,0 +1,10 @@
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a [routerLink]="['/files']" [queryParams]="cloud ? {cloud: cloud} : ''">{{ 'header.files_nav' | translate }}</a>
+        </li>
+        <li class="breadcrumb-item" *ngFor="let folder of navigation">
+            <a [routerLink]="['/files']" [queryParams]="cloud ? {dir:folder.path, cloud: cloud} : {dir:folder.path}">{{folder.folder_name}}</a>
+        </li>
+    </ol>
+</nav>

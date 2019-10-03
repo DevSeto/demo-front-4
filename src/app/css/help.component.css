@@ -1,0 +1,118 @@
+#help-page .faqs {
+    margin-bottom: 10px;
+}
+
+#help-page .faqs button {
+    width: 100%;
+    display: block;
+    padding: 19px 75px 19px 25px;
+    position: relative;
+    overflow: hidden;
+    margin: 0px;
+    color: #1f1f1f;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-family: 'MuliSemiBold';
+    text-decoration: none;
+    text-align: left;
+    background-color: #FFFFFF !important;
+    border: none;
+}
+
+#help-page .faqs button:after {
+    content: " ";
+    position: absolute;
+    right: 65px;
+    width: 1px;
+    background: rgba(208, 218, 226, 0.5);
+    height: 300px;
+    top: 0;
+}
+
+#help-page .cl-body {
+    background-color: #fff;
+    border: none;
+    line-height: 1.71;
+    color: #1f1f1f;
+}
+
+#help-page .cl-body div {
+    padding: 15px 25px;
+}
+
+#help-page .faqs .plus-minus-icon {
+    color: #12aef5;
+    position: absolute;
+    right: 25px;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    font-size: 17px;
+}
+
+#help-page .faqs button .plus-minus-icon:before {
+    content: "\e90e";
+}
+
+#help-page .faqs button.active {
+    background-color: #12aef5 !important;
+    color: #fff;
+    /*border-bottom: 25px solid #fff;*/
+}
+
+#help-page .faqs button.active .plus-minus-icon {
+    color: #fff;
+}
+
+#help-page .faqs button.active .plus-minus-icon:before {
+    content: "\e905";
+}
+
+#help-page .faqs button.active:after {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.support-link {
+    color: #2f3339;
+    font-size: 16px;
+    line-height: 1.63;
+    margin-bottom: 15px;
+}
+
+.support-link a {
+    color: #12aef5;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 767px) {
+    .support-link {
+        font-size: 14px;
+    }
+
+    #contact-page .contact-box .tab-block-title {
+        margin-bottom: 15px;
+    }
+
+    #contact-page .contact-box .info-box-right ul {
+        margin-bottom: 10px;
+    }
+
+    .gray-line {
+        display: block !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #help-page .panel-title a {
+        font-size: 12px;
+        padding: 8px 70px 8px 15px;
+    }
+
+    #help-page .panel-body {
+        padding: 15px;
+    }
+}

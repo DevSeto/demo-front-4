@@ -1,0 +1,128 @@
+<header *ngIf="isLogged()">
+    <div class="site-header">
+        <div class="container">
+            <ul class="list-inline mobile-menu-toggle float-left">
+                <li class="list-inline-item"><span class="icon-burger" (click)="animationState = 'in'"></span></li>
+                <li class="list-inline-item"><a [routerLink]="['/']"><img src="/assets/images/logo.svg" alt="Logo"></a></li>
+            </ul>
+            <ul class="list-inline float-left left-menu" [@fadeAnimation]="animationState">
+                <li class="list-inline-item">
+                    <span class="icon-close2" (click)="animationState = 'out'"></span>
+                    <a [routerLink]="['/']" class="header-logo">
+                        <img src="/assets/images/logo.svg" alt="Logo">
+                    </a>
+                </li>
+                <li class="menu-item list-inline-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" mdbWavesEffect>
+                    <a [routerLink]="['/']">
+                        <span class="icon-dasboard"></span>{{ 'header.dashboard_nav' | translate }}
+                    </a>
+                </li>
+                <li class="menu-item list-inline-item" [routerLinkActive]="['active']" mdbWavesEffect>
+                    <a [routerLink]="['/files']">
+                        <span class="icon-file"></span>{{ 'header.files_nav' | translate }}
+                    </a>
+                </li>
+                <li class="menu-item list-inline-item" [routerLinkActive]="['active']" mdbWavesEffect>
+                    <a [routerLink]="['/uploads']">
+                        <span class="icon-cloud-upload-2"></span>{{ 'header.uploads_nav' | translate }}
+                    </a>
+                </li>
+                <li class="mobile-storage-info list-inline-item">
+                    <span></span>
+                    <div class="storage-info">
+                        <span class="full-memory"></span>
+                    </div>
+                </li>
+            </ul>
+            <ul class="list-inline float-right right-menu">
+                <li class="list-inline-item">
+                    <div mdbDropdown class="btn-group language-item">
+                        <button type="button" class="btn shadow-none" id="language-menu" mdbDropdownToggle mdbWavesEffect>
+                            <span class="icon-worlwide"></span>
+                        </button>
+                        <ul class="dropdown-menu language-menu">
+                            <li>
+                                <a (click)="switchLanguage('en')" [class]="activeLanguage == 'en' ? 'box-shadow-none dropdown-item active' : 'box-shadow-none dropdown-item'" mdbBtn>{{ 'header.english_lng' | translate }}</a>
+                            </li>
+                            <li>
+                                <a (click)="switchLanguage('ru')" [class]="activeLanguage == 'ru' ? 'box-shadow-none dropdown-item active' : 'box-shadow-none dropdown-item'" mdbBtn>{{ 'header.russian_lng' | translate }}</a>
+                            </li>
+                            <li>
+                                <a (click)="switchLanguage('nl')" [class]="activeLanguage == 'nl' ? 'box-shadow-none dropdown-item active' : 'box-shadow-none dropdown-item'" mdbBtn>{{ 'header.dutch_lng' | translate }}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="list-inline-item none">
+                    <div mdbDropdown class="notification-item btn-group">
+                        <button type="button" class="btn shadow-none" id="notification-menu" mdbDropdownToggle mdbWavesEffect>
+                            <span class="icon-notification"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <notification></notification>
+                        </div>
+                        <span id="notification-count" *ngIf="notificationCount > 0">{{notificationCount}}</span>
+                    </div>
+                </li>
+                <li class="list-inline-item">
+                    <div mdbDropdown class="btn-group user-info-item">
+                        <button type="button" class="btn shadow-none dropdown-toggle" id="user-menu" mdbDropdownToggle mdbWavesEffect>
+                            <span class="menu-user-email">{{email}}</span>
+                            <span class="menu-user-icon float-left">
+                                <img src="/assets/images/user.svg" alt="{{email}}" title="{{email}}"/>
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="user-info-box">
+                                <div class="float-left user-desc-box">
+                                    <p class="user-email">{{email}}</p>
+                                </div>
+                            </li>
+                            <li><a [routerLink]="['/choose-plan']" class="text-left box-shadow-none dropdown-item" [routerLinkActive]="['active']" mdbBtn>{{ 'header.upgrade_plan_nav' | translate }}</a></li>
+                            <li><a [routerLink]="['/settings']" class="text-left box-shadow-none dropdown-item" [routerLinkActive]="['active']" mdbBtn>{{ 'header.settings_nav' | translate }}</a></li>
+                            <li><a [routerLink]="['/logout']" class="text-left box-shadow-none dropdown-item" [routerLinkActive]="['active']" mdbBtn>{{ 'header.logout_nav' | translate }}</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="list-inline-item">
+                    <div mdbDropdown class="btn-group">
+                        <button type="button" class="storage-info no-border" id="storage-menu" mdbDropdownToggle mdbWavesEffect>
+                            <span class="full-memory"></span>
+                            <span>{{nzbCloudUsedSpace | fileSize }} {{ 'global.used' | translate }}</span>
+                        </button>
+                        <ul class="dropdown-menu storage-menu" *ngIf="storages.length">
+                            <li *ngFor="let storage of storages">
+                                <img src="/assets/images/{{storage.storage}}-icon.png"> {{storage.used}} of {{storage.total}}
+                                <div class="download-progress"> <span class="progress-value" [style.width]="storage.percent + '%'"></span> </div>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</header>
+<header *ngIf="!isLogged()">
+    <div class="site-header header-logout">
+        <div class="container">
+            <ul class="list-inline float-left ">
+                <li class="list-inline-item">
+                    <a [routerLink]="['/']" class="header-logo">
+                        <img src="/assets/images/logo.svg" alt="Logo">
+                        <span class="logo-text"> NZB Cloud</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="list-inline float-right login-logout-btns">
+                <li class="list-inline-item">
+                    <a [routerLink]="['/sign-up']" mdbBtn mdbWavesEffect>{{ 'global.sign_up' | translate }}</a>
+                </li>
+                <li class="list-inline-item">
+                    <a [routerLink]="['/login']" mdbBtn mdbWavesEffect>{{ 'global.sign_in' | translate }}</a>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,39 @@
+<ul class="list-inline google-drive">
+    <li class="list-inline-item"><img src="../assets/images/gdrive.png"></li>
+    <li class="list-inline-item">
+        <button
+                [translate]="!externalStorages.gdrive ? 'settings.connect' : 'settings.disconnect'"
+                type="button"
+                class="text-uppercase"
+                [ngClass]="!externalStorages.gdrive ? 'blue-btn' : 'gray-btn'"
+                (click)="grantAccessCloud({ type: 'gdrive', title: 'Google Drive'}, externalStorages.gdrive)"
+                mdbBtn mdbWavesEffect
+        ></button>
+    </li>
+</ul>
+<ul class="list-inline">
+    <li class="list-inline-item"><img src="../assets/images/onedrive.png"></li>
+    <li class="list-inline-item">
+        <button
+                [translate]="!externalStorages.onedrive ? 'settings.connect' : 'settings.disconnect'"
+                type="button"
+                class="text-uppercase"
+                [ngClass]="!externalStorages.onedrive ? 'blue-btn' : 'gray-btn'"
+                (click)="grantAccessCloud({ type: 'onedrive', title: 'OneDrive' }, externalStorages.onedrive)"
+                mdbBtn mdbWavesEffect
+        ></button>
+    </li>
+</ul>
+<ul class="list-inline">
+    <li class="list-inline-item"><img src="../assets/images/dropbox.png"></li>
+    <li class="list-inline-item">
+        <button
+                [translate]="!externalStorages.dropbox ? 'settings.connect' : 'settings.disconnect'"
+                type="button"
+                class="text-uppercase"
+                [ngClass]="!externalStorages.dropbox ? 'blue-btn' : 'gray-btn'"
+                (click)="grantAccessCloud({ type: 'dropbox', title: 'Dropbox' }, externalStorages.dropbox)"
+                mdbBtn mdbWavesEffect
+        ></button>
+    </li>
+</ul>

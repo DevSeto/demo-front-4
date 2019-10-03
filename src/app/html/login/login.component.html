@@ -1,0 +1,74 @@
+<section id="login-page">
+    <div id="left-block"></div>
+    <div id="right-block">
+        <!-- Login Form -->
+        <div id="login-form">
+            <h1>NZB Cloud</h1>
+            <h3 class="text-center">{{ 'login.welcome_back' | translate }}</h3>
+            <form
+                [formGroup]="userForm"
+                (submit)="login()"
+                class="position-relative"
+            >
+                <div class="error-message" *ngIf="loginError">{{loginError}}</div>
+                <div class="form-group">
+                    <label for="email">{{ 'global.email_label' | translate }}*</label>
+                    <input
+                        type="text"
+                        [class.input-error]="classError('email')"
+                        autocomplete="off"
+                        data-rules="required"
+                        formControlName="email"
+                        name="email"
+                        id="email"
+                        placeholder="{{ 'global.email_placeholder' | translate }}"
+                    >
+                </div>
+
+                <div class="form-group relative">
+                    <label for="password">{{ 'global.password_label' | translate }}*</label>
+                    <input
+                        type="{{inputType}}"
+                        [class.input-error]="classError('password')"
+                        autocomplete="off"
+                        data-rules="required"
+                        formControlName="password"
+                        name="password"
+                        id="password"
+                        placeholder="{{ 'global.password_placeholder' | translate }}"
+                        (keypress)="isCapsLock(event)"
+                        [ngClass]="{'caps-lock': isCapsLockActive}"
+                    >
+                    <div class="visible" (click)="changeInputType()" [ngClass]="{'active': toggleClass}"></div>
+                </div>
+
+                <div class="clearfix">
+                    <div class="form-group-checkbox">
+                        <input type="checkbox" name="remember" formControlName="remember" id="remember">
+                        <label for="remember">{{ 'login.remember_me' | translate }}</label>
+                    </div>
+                    <a [routerLink]="['/password/recovery']" id="password-recovery">{{ 'login.forgot_password' | translate }}?</a>
+                </div>
+
+                <div class="form-group">
+                    <button class="btn blue box-shadow-none" mdbBtn mdbWavesEffect>{{ 'global.login' | translate }}</button>
+                </div>
+            </form>
+
+            <div id="social-login" class="clearfix">
+                <p>
+                    <span>{{ 'global.or' | translate }}</span>
+                </p>
+
+                <div class="form-group">
+                    <a [routerLink]="['/sign-up']" mdbBtn mdbWavesEffect class="btn sign-up box-shadow-none">{{ 'global.registration' | translate }}</a>
+                </div>
+            </div>
+
+            <div id="privacy-block" class="text-center">
+                <span [innerHtml]="'global.privacy' | translate"></span>
+            </div>
+        </div>
+        <!-- #End Login Form -->
+    </div>
+</section>

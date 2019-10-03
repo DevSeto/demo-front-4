@@ -1,0 +1,14 @@
+{
+    "extends": "../tslint.json",
+    "rules": {
+        "no-shadowed-variable": false,
+        "no-bitwise": false,
+        "triple-equals": false,
+        "max-line-length": false,
+        "radix": false,
+        "class-name": false,
+        "deprecation": false,
+        "typedef-whitespace": false,
+        "no-inferrable-types": false
+    }
+}

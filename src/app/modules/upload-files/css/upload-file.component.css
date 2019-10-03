@@ -1,0 +1,60 @@
+@-ms-keyframes spin {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.add-file-box input[type='file'] {
+    color: transparent;
+}
+
+#drag-and-drop-upload {
+    float: left;
+    width: 100%;
+    border: dotted 3px #dee;
+    cursor: pointer;
+    background-color: #f7fafc;
+    margin: -10px 0px 20px 0px;
+    text-align: center;
+    color: #7e95a9;
+    font-size: 16px;
+    font-family: 'MuliLight';
+    padding: 125px 0px;
+}
+
+.icon-transfers {
+    -webkit-animation: spin 4s infinite linear;
+    -o-animation: spin 4s infinite linear;
+    animation: spin 4s infinite linear;
+    display: inline-block;
+}

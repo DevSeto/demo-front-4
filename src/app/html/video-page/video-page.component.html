@@ -1,0 +1,33 @@
+<section id="view-video-page" class="page-content">
+    <div class="container">
+        <div class="page-center-content">
+            <upload-file></upload-file>
+
+            <div [class]="!convert ? 'blur video-single-content' : 'video-single-content'" *ngIf="fileId">
+                <video id="singleVideo" class="video-js vjs-fluid vjs-big-play-centered" controls preload="none" crossorigin [poster]="poster"></video>
+            </div>
+
+            <div class="base-white-block relative" *ngIf="!convert">
+                <div class="video-description-box" >
+                    <div class="not-converted" [style.width]="videoInfo.progress + '%'"></div>
+                    <div class="video-description-cell relative">
+                        <h3 class="video-title float-left">{{ 'video-page.converting_for_browser' | translate }}</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="base-white-block" *ngIf="video">
+                <div class="video-description-box" >
+                    <div class="video-description-cell">
+                        <h3 class="video-title float-left">{{video.title}}</h3>
+                    </div>
+                    <div class="video-description-cell text-right">
+                        <a (click)="generateLink()" class="blue-btn box-shadow-none" mdbBtn mdbWavesEffect>{{ 'video-page.download_file' | translate }} ({{video.size}})</a>
+                    </div>
+                </div>
+            </div>
+
+            <a (click)="generateLink()" class="blue-btn mobile-download-btn box-shadow-none" mdbBtn mdbWavesEffect>{{ 'video-page.download_file' | translate }} ({{video.size}})</a>
+        </div>
+    </div>
+</section>

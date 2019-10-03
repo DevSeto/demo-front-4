@@ -1,0 +1,45 @@
+.error-page {
+    width: 100%;
+    /*min-height: calc(100vh - 155px);*/
+    /*position: relative;*/
+}
+
+.error-page .error-content {
+    max-width: 550px;
+    padding: 0 15px;
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.error-page .error-content h2 {
+    color: #7e95a9;
+    font-size: 22px;
+    margin-top: 25px;
+}
+
+.error-page .error-content .go-back-btn {
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    background-color: #12aef5;
+    font-size: 12px;
+    color: #ffffff;
+    letter-spacing: 1px;
+    display: block;
+    padding: 14px 10px;
+    max-width: 462px;
+    margin: 70px auto 10px;
+    font-family: 'MuliExtraBold';
+}
+
+.error-page .error-content .go-back-btn:hover, .error-page .error-content .go-back-btn:focus {
+    text-decoration: none;
+}

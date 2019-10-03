@@ -1,0 +1,22 @@
+<div class="add-file-box">
+    <form *ngIf="!dragAndDropUpload">
+        <input
+                type="text"
+                #nzbUrl
+                class="input-field"
+                placeholder="{{ 'dashboard.file_placeholder' | translate }}"
+                (dragover)="dragAndDropUpload = !dragAndDropUpload"
+        >
+        <div class="add-file-item" mdbTooltip="Basic tooltip" placement="top">
+            <div class="add-file-content">
+                <span *ngIf="upload" class="icon-transfers"></span>
+                <input type="file" (click)="checkUrl($event)" (change)="uploadNzbFile($event)" accept=".nzb" multiple>
+                {{ 'dashboard.file_button_text' | translate }}
+            </div>
+        </div>
+    </form>
+
+    <div id="drag-and-drop-upload" *ngIf="dragAndDropUpload" [(dragAndDropUpload)]="dragAndDropUpload" drag-and-drop>
+        {{ 'dashboard.file_placeholder' | translate }}
+    </div>
+</div>

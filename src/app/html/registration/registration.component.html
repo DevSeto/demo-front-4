@@ -1,0 +1,92 @@
+<section id="registration-page">
+    <div id="left-block"></div>
+    <div id="right-block">
+        <!-- Login Form -->
+        <div id="registration-form" *ngIf="!userRegistered">
+            <h1>NZB Cloud</h1>
+            <h3 class="text-center">{{ 'registration.welcome_text' | translate }}</h3>
+            <form
+                [formGroup]="userForm"
+                (submit)="registration()"
+            >
+                <div class="error-message" *ngIf="registrationError">{{registrationError}}</div>
+                <div class="form-group">
+                    <label>{{ 'global.email_label' | translate }}*</label>
+                    <input
+                        type="text"
+                        [class.input-error]="classError('email')"
+                        autocomplete="off"
+                        data-rules="required"
+                        formControlName="email"
+                        name="email"
+                        placeholder="{{ 'global.email_placeholder' | translate }}"
+                    >
+                </div>
+
+                <div class="form-group relative">
+                    <label for="password">{{ 'global.password_label' | translate }}*</label>
+                    <input
+                        type="{{inputType}}"
+                        [class.input-error]="classError('password')"
+                        id="password"
+                        autocomplete="off"
+                        data-rules="required"
+                        formControlName="password"
+                        name="password"
+                        placeholder="{{ 'global.password_placeholder' | translate }}"
+                        (focus)="isCapsLock($event,'password')"
+                        (blur)="hideCapsLock()"
+                        (keydown)="isCapsLock($event,'password')"
+                        [ngClass]="{'caps-lock': passwordCapsLock}"
+                    >
+                    <div class="visible" (click)="changeInputType('inputType')" [ngClass]="{'active': toggleClassPassword}"></div>
+                </div>
+
+                <div class="form-group relative">
+                    <label for="confirmPassword">{{ 'global.confirm_password_label' | translate }}*</label>
+                    <input
+                        type="{{inputConfirmation}}"
+                        [class.input-error]="classError('password_confirmation') || userForm.hasError('mismatch')"
+                        id="confirmPassword"
+                        autocomplete="off"
+                        data-rules="required"
+                        formControlName="password_confirmation"
+                        name="password_confirmation"
+                        placeholder="{{ 'global.confirm_password_placeholder' | translate }}"
+                        (focus)="isCapsLock($event,'password_confirmation')"
+                        (blur)="hideCapsLock()"
+                        (keydown)="isCapsLock($event,'password_confirmation')"
+                        [ngClass]="{'caps-lock': pwdConfirmationCapsLock}"
+                    >
+                    <div class="visible" (click)="changeInputType('inputConfirmation')" [ngClass]="{'active': toggleClassPwdConfirmation}"></div>
+                </div>
+
+                <div class="form-group buttons">
+                    <button class="btn blue box-shadow-none" mdbBtn mdbWavesEffect>{{ 'global.registration' | translate }}</button>
+                </div>
+            </form>
+
+            <div id="privacy-block" class="text-center">
+                <span [innerHTML]="'global.privacy' | translate"></span>
+            </div>
+        </div>
+        <div id="registration-verify" *ngIf="userRegistered">
+            <h1>NZB Cloud</h1>
+            <h3>{{ 'registration.go_to_your_mailbox' | translate }}!</h3>
+            <p [innerHTML]="'registration.activation_link' | translate:user"></p>
+            <br>
+            <p [innerHTML]="'registration.upgrade_plan' | translate"></p>
+            <div class="note" [innerHTML]="'registration.update_email_address_text' | translate"></div>
+            <form>
+                <div class="form-group">
+                    <label>{{ 'global.email_label' | translate }}*</label>
+                    <input type="text" placeholder="{{ 'global.email_placeholder' | translate }}">
+                </div>
+                <div class="form-group buttons">
+                    <button class="btn blue box-shadow-none" mdbBtn>{{ 'registration.resend_email' | translate }}</button>
+                </div>
+            </form>
+        </div>
+        <!-- #End Login Form -->
+    </div>
+</section>

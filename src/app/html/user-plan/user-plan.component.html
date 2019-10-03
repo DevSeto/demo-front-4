@@ -1,0 +1,226 @@
+<section id="pricing-page" class="page-content">
+    <div class="container">
+        <div class="page-center-content">
+            <h2 class="page-title">{{ 'choose-plan.page_title' | translate }}</h2>
+            <div class="row">
+                <div class="col-md-12 pricing-info">
+                    <div id="pricing-table" class="row">
+                        <div class="pricing-table starter">
+                            <div class="pricing-table-content">
+                                <div class="pricing-head">
+                                    <ul class="list-unstyled text-center">
+                                        <li>
+                                            {{ 'choose-plan.beta_plan' | translate }}
+                                        </li>
+                                        <li>
+                                            <h2>5000 {{ 'global.gb' | translate }}</h2>
+                                        </li>
+                                        <li>
+                                            {{ 'choose-plan.cloud_storage' | translate }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-body text-center">
+                                    <ul class="list-unstyled ">
+                                        <li>
+                                            <h3>1 {{ 'choose-plan.slot' | translate }}</h3>
+                                            <p>{{ 'choose-plan.slots_for_download' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>1 {{ 'choose-plan.torrent' | translate }}</h3>
+                                            <p>{{ 'choose-plan.torrents_for_download' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.not_guaranteed' | translate }}</h3>
+                                            <p>{{ 'choose-plan.download_speed' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.unsecured' | translate }}</h3>
+                                            <p>{{ 'choose-plan.only_http' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.online_stream' | translate }}</h3>
+                                            <p>{{ 'choose-plan.all_devices' | translate }}</p>
+                                        </li>
+                                    </ul>
+                                    <h2 class="free-plan">{{ 'choose-plan.free' | translate }}</h2>
+                                    <a href="javascript:void (0)" (click)="updateUserPlan('free')" *ngIf="selectedPlan !== 'free'" class="blue-btn box-shadow-none" mdbBtn>{{ 'choose-plan.choose_plan' | translate }}</a>
+                                    <p class="current-plan" *ngIf="selectedPlan == 'free'">{{ 'choose-plan.selected_plan' | translate }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-table small beta-testing">
+                            <div class="pricing-table-content">
+                                <div class="pricing-head">
+                                    <ul class="list-unstyled text-center">
+                                        <li>
+                                            {{ 'choose-plan.small_plan' | translate }}
+                                        </li>
+                                        <li>
+                                            <h2>30 {{ 'global.gb' | translate }}</h2>
+                                        </li>
+                                        <li>
+                                            {{ 'choose-plan.cloud_storage' | translate }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-body text-center">
+                                    <ul class="list-unstyled ">
+<!--                                        <li>-->
+<!--                                            <h3>5 {{ 'choose-plan.slots' | translate }}</h3>-->
+<!--                                            <p>{{ 'choose-plan.slots_for_download' | translate }}</p>-->
+<!--                                        </li>-->
+                                        <li>
+                                            <h3>{{ 'choose-plan.unlimited' | translate }}</h3>
+                                            <p>{{ 'choose-plan.torrents_for_download' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.unlimited' | translate }}</h3>
+                                            <p>{{ 'choose-plan.download_speed' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.secured' | translate }}</h3>
+                                            <p>{{ 'choose-plan.only_https' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.online_stream' | translate }}</h3>
+                                            <p>{{ 'choose-plan.all_devices' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.extra_features' | translate }}</h3>
+                                            <p>{{ 'choose-plan.rss_downloader' | translate }}</p>
+                                        </li>
+                                    </ul>
+                                    <h2 class="plan-price"><sup>$</sup>13 <span>/ {{ 'choose-plan.month' | translate }}</span></h2>
+                                    <ul class="list-inline payments-method">
+                                        <li class="list-inline-item"><span><img src="/assets/images/Visa.png" alt="visa"></span></li>
+                                        <li class="list-inline-item"><span><img src="/assets/images/mastercard.png" alt="mastercard"></span></li>
+                                        <li class="list-inline-item"><span><img src="/assets/images/Diners_Club.png" alt="diners club"></span></li>
+                                        <li class="list-inline-item"><span><img src="/assets/images/paypal.png" alt="paypal"></span></li>
+                                        <li class="list-inline-item"><span><img src="/assets/images/bitcoin.png" alt="bitcoin"></span></li>
+                                    </ul>
+                                    <p class="other-payment-methods">+ {{ 'choose-plan.another_methods' | translate }}</p>
+                                    <a href="javascript:void (0)" (click)="updateUserPlan('small')" *ngIf="selectedPlan !== 'small'" class="blue-btn box-shadow-none" mdbBtn>{{ 'choose-plan.choose_plan' | translate }}</a>
+                                    <p class="current-plan" *ngIf="selectedPlan == 'small'">{{ 'choose-plan.selected_plan' | translate }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-table basic beta-testing">
+                            <div class="pricing-table-content">
+                                <div class="pricing-head">
+                                    <span class="popular-item">{{ 'choose-plan.popular' | translate }}</span>
+                                    <ul class="list-unstyled text-center">
+                                        <li>
+                                            {{ 'choose-plan.basic_plan' | translate }}
+                                        </li>
+                                        <li>
+                                            <h2>100 {{ 'global.gb' | translate }}</h2>
+                                        </li>
+                                        <li>
+                                            {{ 'choose-plan.cloud_storage' | translate }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-body text-center">
+                                    <ul class="list-unstyled ">
+<!--                                        <li>-->
+<!--                                            <h3>10 {{ 'choose-plan.slots' | translate }}</h3>-->
+<!--                                            <p>{{ 'choose-plan.slots_for_download' | translate }}</p>-->
+<!--                                        </li>-->
+                                        <li>
+                                            <h3>{{ 'choose-plan.unlimited' | translate }}</h3>
+                                            <p>{{ 'choose-plan.torrents_for_download' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.unlimited' | translate }}</h3>
+                                            <p>{{ 'choose-plan.download_speed' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.secured' | translate }}</h3>
+                                            <p>{{ 'choose-plan.only_https' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.online_stream' | translate }}</h3>
+                                            <p>{{ 'choose-plan.all_devices' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.extra_features' | translate }}</h3>
+                                            <p>{{ 'choose-plan.rss_downloader' | translate }}</p>
+                                        </li>
+                                    </ul>
+                                    <h2 class="plan-price"><sup>$</sup>20 <span>/ {{ 'choose-plan.month' | translate }}</span></h2>
+                                    <ul class="list-inline payments-method">
+                                        <li class="list-inline-item"><span><img src="/assets/images/Visa.png" alt="visa"></span></li>
+                                        <li class="list-inline-item"><span><img src="/assets/images/mastercard.png" alt="mastercard"></span></li>
+                                        <li class="list-inline-item"><span><img src="/assets/images/Diners_Club.png" alt="diners club"></span></li>
+                                        <li class="list-inline-item"><span><img src="/assets/images/paypal.png" alt="paypal"></span></li>
+                                        <li class="list-inline-item"><span><img src="/assets/images/bitcoin.png" alt="bitcoin"></span></li>
+                                    </ul>
+                                    <p class="other-payment-methods">+ {{ 'choose-plan.another_methods' | translate }}</p>
+                                    <a href="javascript:void (0)" (click)="updateUserPlan('basic')" *ngIf="selectedPlan !== 'basic'" class="blue-btn box-shadow-none" mdbBtn>{{ 'choose-plan.choose_plan' | translate }}</a>
+                                    <p class="current-plan" *ngIf="selectedPlan == 'basic'">{{ 'choose-plan.selected_plan' | translate }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-table big beta-testing">
+                            <div class="pricing-table-content">
+                                <div class="pricing-head">
+                                    <ul class="list-unstyled text-center">
+                                        <li>
+                                            {{ 'choose-plan.big_plan' | translate }}
+                                        </li>
+                                        <li>
+                                            <h2>250 {{ 'global.gb' | translate }}</h2>
+                                        </li>
+                                        <li>
+                                            {{ 'choose-plan.cloud_storage' | translate }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pricing-body text-center">
+                                    <ul class="list-unstyled ">
+<!--                                        <li>-->
+<!--                                            <h3>20 {{ 'choose-plan.slots' | translate }}</h3>-->
+<!--                                            <p>{{ 'choose-plan.slots_for_download' | translate }}</p>-->
+<!--                                        </li>-->
+                                        <li>
+                                            <h3>{{ 'choose-plan.unlimited' | translate }}</h3>
+                                            <p>{{ 'choose-plan.torrents_for_download' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.unlimited' | translate }}</h3>
+                                            <p>{{ 'choose-plan.download_speed' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.secured' | translate }}</h3>
+                                            <p>{{ 'choose-plan.only_https' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.online_stream' | translate }}</h3>
+                                            <p>{{ 'choose-plan.all_devices' | translate }}</p>
+                                        </li>
+                                        <li>
+                                            <h3>{{ 'choose-plan.extra_features' | translate }}</h3>
+                                            <p>{{ 'choose-plan.rss_downloader' | translate }}</p>
+                                        </li>
+                                    </ul>
+                                    <h2 class="plan-price"><sup>$</sup>30 <span> / {{ 'choose-plan.month' | translate }}</span></h2>
+                                    <ul class="list-inline payments-method">
+                                        <li class="list-inline-item"><span><img src="/assets/images/Visa.png" alt="visa"></span></li>
+                                        <li class="list-inline-item"><span><img src="/assets/images/mastercard.png" alt="mastercard"></span></li>
+                                        <li class="list-inline-item"><span><img src="/assets/images/Diners_Club.png" alt="diners club"></span></li>
+                                        <li class="list-inline-item"><span><img src="/assets/images/paypal.png" alt="paypal"></span></li>
+                                        <li class="list-inline-item"><span><img src="/assets/images/bitcoin.png" alt="bitcoin"></span></li>
+                                    </ul>
+                                    <p class="other-payment-methods">+ {{ 'choose-plan.another_methods' | translate }}</p>
+                                    <a href="javascript:void (0)" (click)="updateUserPlan('big')" *ngIf="selectedPlan !== 'big'" class="blue-btn box-shadow-none" mdbBtn>{{ 'choose-plan.choose_plan' | translate }}</a>
+                                    <p class="current-plan" *ngIf="selectedPlan == 'big'">{{ 'choose-plan.selected_plan' | translate }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

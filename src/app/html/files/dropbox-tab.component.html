@@ -1,0 +1,70 @@
+<table class="table custom-table">
+    <tr class="thead">
+        <!--<th class="checkbox-cell">-->
+            <!--<div class="custom-checkbox">-->
+                <!--<input type="checkbox" value="None" id="checkbox" name="check" />-->
+                <!--<label for="checkbox"></label>-->
+            <!--</div>-->
+        <!--</th>-->
+        <th class="files-name">
+            <span>{{ 'files.folder_name' | translate }}</span>
+        </th>
+        <th class="file-size-cell">{{ 'files.folder_size' | translate }}</th>
+        <th>{{ 'files.folder_count' | translate }}</th>
+        <th class="text-right">{{ 'files.folder_actions' | translate }}</th>
+    </tr>
+    <tr *ngFor="let folder of folders">
+        <!--<td class="checkbox-cell">-->
+            <!--<div class="custom-checkbox">-->
+                <!--<input type="checkbox" value="None" id="checkbox2" name="check" />-->
+                <!--<label for="checkbox2"></label>-->
+            <!--</div>-->
+        <!--</td>-->
+        <td class="files-name" *ngIf="!folder.type">
+            <a [routerLink]="['/files']" [queryParams]="{ dir: folder.id, cloud: 'dropbox' }" title="{{folder.id}}">
+                <span class="icon-folder"></span>
+                {{folder.name}}
+            </a>
+        </td>
+        <td class="files-name" *ngIf="folder.type">
+            <span *ngIf="folder.video && folder.video_convert">
+                <a [routerLink]="['/video/' + folder.id]" title="{{folder.name}}">
+                    {{folder.name}}
+                </a>
+            </span>
+            <span *ngIf="!folder.video || !folder.video_convert">
+                {{folder.name}}
+            </span>
+        </td>
+        <td class="file-size-cell">
+            {{helper.humanFileSize(folder.size)}}
+        </td>
+        <td class="file-amount-cell">
+            {{folder.amount}}
+        </td>
+        <td class="text-right">
+            <ul class="list-inline file-action-items">
+                <li class="list-inline-item" *ngIf="folder.type">
+                    <a (click)="generateLink(folder.fileId, 'dropbox')"><span class="icon-download"></span></a>
+                </li>
+                <li class="list-inline-item" (click)="openDeleteFolderModal(folder.id)">
+                    <span class="icon-cancel-circle"></span>
+                </li>
+            </ul>
+        </td>
+    </tr>
+
+</table>
+
+<div class="col-lg-12 text-center">
+    <ngb-pagination
+            *ngIf="currentPage && folderCount > perPage"
+            [collectionSize]="folderCount"
+            [(page)]="currentPage"
+            [pageSize]="perPage"
+            [maxSize]="linkSize"
+            [boundaryLinks]="true"
+            [class]="'pagination custom-pagination'"
+            (pageChange)="setPage($event)"
+    ></ngb-pagination>
+</div>

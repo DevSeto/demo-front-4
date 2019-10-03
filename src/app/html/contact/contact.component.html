@@ -1,0 +1,76 @@
+<section id="contact-page" class="page-content">
+    <div class="container">
+        <div class="page-center-content">
+            <h2 class="page-title">{{ 'contact.page_title' | translate }}</h2>
+            <p class="support-link" [innerHTML]="'contact.contact_description' | translate:nzbCloudEmail"></p>
+            <div class="base-white-block">
+                <div class="contact-box">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-7  info-box-left">
+                            <h3 class="tab-block-title">{{ 'contact.form' | translate }}</h3>
+                            <form
+                                    [formGroup]="contactForm"
+                                    (submit)="contact()">
+                                <div class="field-row">
+                                    <label for="user-name">{{ 'contact.name_label' | translate }}*</label>
+                                    <input
+                                            type="text"
+                                            [class.input-error]="classError('name')"
+                                            autocomplete="off"
+                                            data-rules="required"
+                                            formControlName="name"
+                                            name="name"
+                                            id="name"
+                                            placeholder="{{ 'global.name_placeholder' | translate }}"
+                                    >
+                                </div>
+                                <div class="field-row">
+                                    <label for="user-email">{{ 'contact.email_label' | translate }}*</label>
+                                    <input
+                                            type="text"
+                                            [class.input-error]="classError('email')"
+                                            autocomplete="off"
+                                            data-rules="required"
+                                            formControlName="email"
+                                            name="email"
+                                            id="email"
+                                            placeholder="{{ 'global.email_placeholder' | translate }}"
+                                    >
+                                </div>
+                                <div class="field-row">
+                                    <label for="message">{{ 'contact.message_label' | translate }}*</label>
+                                    <textarea
+                                            [class.input-error]="classError('message')"
+                                            data-rules="required"
+                                            formControlName="message"
+                                            name="message"
+                                            id="message"
+                                            placeholder="{{ 'global.message_placeholder' | translate }}"
+                                    ></textarea>
+                                </div>
+
+                                <div class="text-right">
+                                    <button type="submit" class="blue-btn btn" mdbBtn mdbWavesEffect>{{ 'global.send_message' | translate }}</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-5 col-sm-5 info-box-right">
+                            <h3 class="tab-block-title">{{ 'contact.our_contacts' | translate }}</h3>
+                            <div id="address">
+                                <span>{{ 'contact.address_section' | translate }}</span>
+                                <div [innerHTML]="address"></div>
+                            </div>
+                            <div id="phone">
+                                <span>{{ 'contact.phone_section' | translate }}</span>
+                                <p *ngFor="let phone of phones">
+                                    <a href="tel:{{phone.phone}}">{{phone.phone}}</a>
+                                </p>
+                            </div>
+                            <div class="gray-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

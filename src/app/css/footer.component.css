@@ -1,0 +1,119 @@
+.site-footer {
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: inset 0 1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox; /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Chrome */
+    display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.footer-content ul {
+    margin-bottom: 0
+}
+
+.social-icons {
+    min-width: 75px;
+    margin-left: 0;
+}
+
+.social-icons li a span {
+    color: #AFC3D4;
+    display: inline-block;
+    font-size: 30px;
+    border: 1px solid #AFC3D4;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.social-icons li a span:hover {
+    color: #12aef5;
+    border: 1px solid #12aef5;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.copyright-text, .footer-menu li a {
+    font-size: 12px;
+    color: #7e95a9;
+
+}
+
+.footer-menu li a {
+    text-transform: uppercase;
+    font-family: 'MuliSemiBold';
+    margin: 0 7px;
+}
+
+.footer-menu li a.active {
+    color: #4eaef5;
+}
+
+@media screen and (max-width: 900px) {
+    .login-logout-btns li a {
+        padding: 7px 20px;
+    }
+
+    .footer-content {
+        display: block !important;
+    }
+
+    .footer-content .social-icons {
+        min-width: inherit;
+        float: right;
+    }
+
+    .footer-content .social-icons li:last-child {
+        padding-right: 0;
+    }
+
+    ul.footer-menu {
+        text-align: left !important;
+        float: left;
+        max-width: calc(100% - 100px);
+    }
+
+    ul.footer-menu li {
+        width: 48%;
+        margin-bottom: 10px;
+    }
+
+    .footer-menu li a {
+        margin: 0 !important;
+    }
+
+    .footer-content .copyright-text {
+        display: block;
+        width: 100%;
+        float: left;
+        margin-top: 10px;
+    }
+
+    .list-inline-item:not(:last-child) {
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+
+    .site-header .logo-text {
+        display: none;
+    }
+}

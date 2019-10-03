@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="539" height="257" viewBox="0 0 539 257">
+    <defs>
+        <text id="b" fill="#FFF" font-family="Poppins" font-size="220" font-weight="bold" letter-spacing="10">
+            <tspan x="0" y="245">40</tspan> <tspan x="312.38" y="245">4</tspan>
+        </text>
+        <filter id="a" width="132.9%" height="150.7%" x="-16.5%" y="-24.7%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="25"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0"/>
+        </filter>
+    </defs>
+    <g fill="#FFF" fill-rule="evenodd" transform="translate(38 -9)">
+        <use filter="url(#a)" xlink:href="#b"/>
+        <use xlink:href="#b"/>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>icon/caps lock</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="ui-design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2.0-Registration" transform="translate(-1161.000000, -540.000000)" fill="#12AEF5" fill-rule="nonzero">
+            <g id="info" transform="translate(505.000000, 0.000000)">
+                <g id="element/field" transform="translate(230.000000, 511.000000)">
+                    <g id="icon/caps-lock" transform="translate(434.000000, 36.500000) scale(1, -1) translate(-434.000000, -36.500000) translate(426.000000, 29.000000)">
+                        <path d="M7.28951807,14.2826865 L0,6.92307692 L3.57142857,6.92307692 C4.12371332,6.92307692 4.57142857,6.47536167 4.57142857,5.92307692 L4.57142857,1 C4.57142857,0.44771525 5.01914382,1.01453063e-16 5.57142857,0 L10.4285714,0 C10.9808562,-1.01453063e-16 11.4285714,0.44771525 11.4285714,1 L11.4285714,5.92307692 C11.4285714,6.47536167 11.8762867,6.92307692 12.4285714,6.92307692 L16,6.92307692 L8.71048193,14.2826865 C8.32183063,14.6750748 7.6886729,14.6781043 7.29628456,14.289453 C7.29401828,14.2872083 7.29176276,14.2849528 7.28951807,14.2826865 Z" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
